@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
-
+app.use("/api/notes",notesRoute);
 connectdb().then(() => {
   app.listen(PORT, () => {
     console.log("server started sucessfully");

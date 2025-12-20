@@ -1,5 +1,6 @@
 import express from "express";
-import { getAllNotes } from "../controllers/notesControllers.js";
+import { addNote, getAllNotes } from "../controllers/notesControllers.js";
 const router = express.Router();
-router.get("/api/notes", getAllNotes);
+router.get("/", getAllNotes);
+router.post("/",addNote);
 export default router;
