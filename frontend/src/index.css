@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@theme {
+  --color-espresso: #291C0E;
+  --color-walnut: #6E473B;
+  --color-taupe: #A78D78;
+  --color-stone: #BEB5A9;
+  --color-parchment: #E1D4C2;
+  --font-Valentino: "Valentino", sans-serif;
+}
+@font-face {
+  font-family: 'Valentino';
+  src: url('../public/fonts/The\ Valentino.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
