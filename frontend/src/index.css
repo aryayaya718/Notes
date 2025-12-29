@@ -10,7 +10,7 @@
 }
 @font-face {
   font-family: 'Valentino';
-  src: url('../public/fonts/The\ Valentino.ttf') format('truetype');
+  src: url('/fonts/The\ Valentino.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
