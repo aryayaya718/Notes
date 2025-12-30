@@ -1,7 +1,14 @@
 import Navbar from "../components/Navbar.jsx";
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
+
+
 function Homepage() {
+const [notes,setNotes]=useState([]);
+const [loading,setLoading]=useState(true); 
+useEffect(()=>{
   
+},[]
+);
   return (
     <div>
       <Navbar />
