@@ -9,11 +9,9 @@ const [loading,setLoading]=useState(true);
 useEffect(()=>{
   async function apiCall(){
       const res =await api.get("/");
-      console.log(res.data[0])
       setNotes(res.data); 
   }
     apiCall();
-    console.log(notes[0]);
 }
 ,[]
 );
@@ -22,7 +20,11 @@ useEffect(()=>{
       <Navbar />
        <div className="bg-parchment min-h-screen">
       <div className="h-25"></div>
-      <div className="grid grid-cols-3 gap-6"><NoteCard/></div>
+      <div className="grid grid-cols-3 gap-6 px-25 py-6">
+		{notes.map((note)=>{
+			return(<NoteCard title={note.title} content={note.content} date={note.updatedAt} key={note._id} id={note._id} setNotes={setNotes}/>)
+		})}
+       </div>
      </div>
     </div>
   );
