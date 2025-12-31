@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar.jsx";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Trash2 } from "lucide-react";
 import api from "../lib/Axios.js";
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 function Detailpage() {
   const [title, setTitle] = useState("");
@@ -14,7 +14,7 @@ function Detailpage() {
       return;
     }
     try {
-      await api.post("/", { title, content });
+      await api.put(`/${params.id}`, { title, content });
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -30,18 +30,34 @@ function Detailpage() {
         console.error(error);
       }
     }
+    apiCall();
   }, []);
+    async function handleDelete(event){
+      event.preventDefault();
+      try{
+        await api.delete(`/${params.id}`);
+        navigate("/");
+      }
+      catch(error){
+        console.error(error);
+      }  
+    }
   return (
     <>
       {" "}
       <Navbar />
       <div className="h-25"></div>
       <div className="min-h-screen px-120 py-10 bg-parchment">
-        <div>
+        <div className="flex justify-between">
           {" "}
+          <Link to="/">
           <button className="btn btn-ghost">
             <ArrowLeft />
             Back to Notes{" "}
+          </button>
+          </Link>
+          <button className="btn btn-outline btn-error rounded-full mb-3 mr-3" onClick={handleDelete}>
+             <Trash2/> Delete Note
           </button>
         </div>
         <div className="bg-taupe/30 p-5 rounded-3xl">

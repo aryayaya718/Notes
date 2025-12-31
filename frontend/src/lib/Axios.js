@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl="http://localhost:5001/api/notes";
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001/api/notes" : "/api/notes";
 const api=axios.create({
     baseURL:baseUrl
 });

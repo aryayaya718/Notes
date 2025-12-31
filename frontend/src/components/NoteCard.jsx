@@ -4,6 +4,7 @@ import api from "../lib/Axios.js";
 function NoteCard(props) {
   async function handleDelete(event) {
     event.preventDefault();
+    if(!window.confirm("Are you sure")){return}
     try {
       await api.delete(`/${props.id}`);
       props.setNotes((notes) => notes.filter((n) => n._id !== props.id));
